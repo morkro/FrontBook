@@ -1,0 +1,13 @@
+{
+	"meta": {
+		"locale": "en",
+		"title": "FrontBook",
+		"author": "Moritz Kröger",
+		"description": "FrontBook is a production ready project boilerplate.",
+		"keywords": "boilerplate"
+	},
+
+	"page_index": {
+		"greetings": "Wow, this works!"
+	}
+}
