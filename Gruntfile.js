@@ -1,18 +1,6 @@
 module.exports = function (grunt) {
 	'use strict';
 
-	// Directories
-	var dir = {
-		'public': 'public/',
-		'css': 'src/styles/css/',
-		'scss': 'src/styles/scss/',
-		'scripts': 'src/scripts/',
-		'views': 'src/views/',
-		'includes': 'src/includes/',
-		'i18n': 'src/i18n/',
-		'assets': 'src/assets/'
-	};
-
 	// Loads all required grunt tasks
 	require('load-grunt-tasks')(grunt);
 	// Displays execution time of each task
@@ -23,9 +11,22 @@ module.exports = function (grunt) {
 	// Initialise configuration
 	grunt.initConfig({
 		/**
+		 * Application directories.
+		 */
+		dir: {
+			public: 'public',
+			css: 'src/styles/css',
+			scss: 'src/styles/scss',
+			scripts: 'src/scripts',
+			views: 'src/views',
+			includes: 'src/includes',
+			i18n: 'src/i18n',
+			assets: 'src/assets'
+		},
+		/**
 		 * Clean build folder.
 		 */
-		clean: [dir.public],
+		clean: ['<%= dir.public %>/'],
 		/**
 		 * Write ES6 today, compile it to ES5.
 		 */
@@ -38,7 +39,7 @@ module.exports = function (grunt) {
 					browserifyOptions: { debug: true }
 				},
 				files: {
-					'src/scripts/es5/app.js': [dir.scripts + 'es6/**/*.js']
+					'<%= dir.scripts %>/es5/app.js': ['<%= dir.scripts %>/es6/**/*.js']
 				}
 			}
 		},
@@ -53,13 +54,13 @@ module.exports = function (grunt) {
 					beautify: true
 				},
 				files: {
-					'public/app.min.js': [dir.scripts + 'es5/*.js']
+					'<%= dir.public %>/app.min.js': ['<%= dir.scripts %>/es5/*.js']
 				}
 			},
 			prod: {
 				options: { screwIE8: true },
 				files: {
-					'public/app.min.js': [dir.scripts + 'es5/*.js']
+					'<%= dir.public %>/app.min.js': ['<%= dir.scripts %>/es5/*.js']
 				}
 			}
 		},
@@ -71,7 +72,7 @@ module.exports = function (grunt) {
 				format: require('eslint-tap'),
 				configFile: '.eslintrc'
 			},
-			target: dir.scripts + 'es6/**/*.js'
+			target: '<%= dir.scripts %>/es6/**/*.js'
 		},
 		/**
 		 * Compiles Sass to valid CSS.
@@ -79,8 +80,8 @@ module.exports = function (grunt) {
 		sass: {
 			options: { style: 'compact' },
 			files: {
-				src: dir.scss + 'main.scss',
-				dest: dir.css + 'main.unprefixed.css'
+				src: '<%= dir.scss %>/main.scss',
+				dest: '<%= dir.css %>/main.unprefixed.css'
 			}
 		},
 		/**
@@ -89,8 +90,8 @@ module.exports = function (grunt) {
 		autoprefixer: {
 			options: { browsers: ['last 2 versions'] },
 			files: {
-				src: dir.css + 'main.unprefixed.css',
-				dest: dir.css + 'main.css'
+				src: '<%= dir.css %>/main.unprefixed.css',
+				dest: '<%= dir.css %>/main.css'
 			}
 		},
 		/**
@@ -99,8 +100,8 @@ module.exports = function (grunt) {
 		cssmin: {
 			options: { keepSpecialComments: 0 },
 			files: {
-				src: dir.css + 'main.css',
-				dest: dir.public + 'main.min.css'
+				src: '<%= dir.css %>/main.css',
+				dest: '<%= dir.public %>/main.min.css'
 			}
 		},
 		/**
@@ -109,10 +110,10 @@ module.exports = function (grunt) {
 		bake: {
 			english: {
 				options: {
-					content: dir.i18n + 'en.json'
+					content: '<%= dir.i18n %>/en.json'
 				},
 				files: {
-					'public/index.html': dir.views + 'index.html',
+					'<%= dir.public %>/index.html': '<%= dir.views %>/index.html',
 				}
 			}
 		},
@@ -122,9 +123,9 @@ module.exports = function (grunt) {
 		copy: {
 			assets: {
 				expand: true,
-				cwd: dir.assets,
+				cwd: '<%= dir.assets %>',
 				src: '**',
-				dest: dir.public + 'assets'
+				dest: '<%= dir.public %>/assets'
 			}
 		},
 		/**
@@ -132,24 +133,24 @@ module.exports = function (grunt) {
 		 */
 		watch: {
 			styles: {
-				files: [dir.scss + '**/*.scss', dir.css + '**/*.css'],
+				files: ['<%= dir.scss %>/**/*.scss', '<%= dir.css %>/**/*.css'],
 				tasks: ['css'],
 				options: { spawn: false }
 			},
 			scripts: {
-				files: [dir.scripts + '**/*.js'],
+				files: ['<%= dir.scripts %>/**/*.js'],
 				tasks: ['browserify', 'eslint', 'uglify']
 			},
 			markup: {
 				files: [
-					dir.views + '**/*.html',
-					dir.includes + '**/*.html',
-					dir.i18n + '**'
+					'<%= dir.views %>/**/*.html',
+					'<%= dir.includes %>/**/*.html',
+					'<%= dir.i18n %>/**'
 				],
 				tasks: ['bake']
 			},
 			assets: {
-				files: [dir.assets + '**'],
+				files: ['<%= dir.assets %>/**'],
 				tasks: ['copy:assets']
 			}
 		},
