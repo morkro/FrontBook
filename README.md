@@ -12,9 +12,9 @@ For development you simply have to run `grunt dev` and your project can be acces
 
 #### Production
 
-- **`grunt prod`:** Cleans the _dist/build/public_ folder, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it.
+- **`grunt prod`:** Cleans the _public_ folder, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it.
 
-There are also some other tasks available, which are used in above tasks and can also be used alone:
+There are also some other tasks available, which are used within above tasks and can be used alone:
 
 - **`grunt css`:** Compiles Sass to CSS, adds prefixe via [Autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) and finally minifies the file.
 - **`grunt js`:** Runs [`grunt browserify`](https://github.com/jmreidy/grunt-browserify) and compiles all ES6 to valid ES5. Linting is done with [ESLint](https://github.com/sindresorhus/grunt-eslint) and eventually uglified.
@@ -29,9 +29,11 @@ There are also some other tasks available, which are used in above tasks and can
 ## To Do
 - Add unit testing with karma and jasmine
 
+## Usage
+Feel free to add, edit or remove everything you want.
+
 ## Contributing
 If you want to improve something or have found any issues, please let me now by opening an issue here on Github or contacting me via mail.
-
 
 ## License
 MIT © [Moritz Kröger](http://www.morkro.de)
