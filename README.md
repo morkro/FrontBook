@@ -30,7 +30,7 @@ There are also some other tasks available, which are used within above tasks and
 - Add unit testing with karma and jasmine
 
 ## Usage
-Feel free to add, edit or remove everything you want.
+Feel free to add, edit or remove anything you want.
 
 ## Contributing
 If you want to improve something or have found any issues, please let me now by opening an issue here on Github or contacting me via mail.
