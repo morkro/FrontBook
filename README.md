@@ -4,10 +4,13 @@ FrontBook is a modern frontend boilerplate, enabling you to write **ES6 in produ
 ## Build and deploy your project
 Grunt.js is used to build the project.
 
-- #### Development
-**`grunt dev`:** Creates a server, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it. Everything in watch mode.
-- #### Production
-**`grunt prod`:** Cleans the _dist/build/public_ folder, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it.
+#### Development
+
+- **`grunt dev`:** Creates a server, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it. Everything in watch mode.
+
+#### Production
+
+- **`grunt prod`:** Cleans the _dist/build/public_ folder, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it.
 
 There are also some other tasks available, which are used in above tasks and can also be used alone:
 
