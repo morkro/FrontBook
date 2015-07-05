@@ -36,7 +36,8 @@ module.exports = function (grunt) {
 					transform: [
 						['babelify', { loose: 'all' }]
 					],
-					browserifyOptions: { debug: true }
+					browserifyOptions: { debug: true },
+					exclude: ''
 				},
 				files: {
 					'<%= dir.scripts %>/es5/app.js': ['<%= dir.scripts %>/es6/**/*.js']
