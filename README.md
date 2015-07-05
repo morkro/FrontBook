@@ -5,7 +5,7 @@ FrontBook is made for developers who want to hop on the trending ES6 train, but 
 
 
 
-## Quick start FrontBook
+## :floppy_disk: Quick start FrontBook
 ### 1. Download the boilerplate
 Choose one of the two options:
 
@@ -26,7 +26,7 @@ If you don't want to run the `watch` task and simply build the project, **`grunt
 
 
 
-## Working with FrontBook
+## :art: Working with FrontBook
 
 The actual development takes place in `src/`.
 
@@ -78,7 +78,7 @@ _There is no Sass linter added yet._
 
 
 
-## Available tasks
+## :wrench: Available tasks
 
 #### General
 - **`grunt build`:** This will simply compile and copy all files from `src/` to `public/*`.
@@ -99,7 +99,7 @@ _There is no Sass linter added yet._
 
 
 
-## Features
+## :gift: Features
 - Includes: [`normalize.css`](http://necolas.github.io/normalize.css/) _(Sassified by [@morkro](https://github.com/morkro))_
 - Gives you the freedom to use any architectural pattern you like
 - ES6 using [Browserify](http://browserify.org/) _(mainly to use modules in ES5)_ and [Babel](https://babeljs.io/).
@@ -108,7 +108,7 @@ _There is no Sass linter added yet._
 
 
 
-## Browser support
+## :bar_chart: Browser support
 - Chrome (latest 2)
 - Firefox (latest 2)
 - Internet Explorer 9+ _(You can support IE8 by limiting yourself to a [subset of ES6 features](http://babeljs.io/docs/advanced/caveats/))_
@@ -117,7 +117,7 @@ _There is no Sass linter added yet._
 
 
 
-## Further documentation
+## :page_with_curl: Further documentation
 - [Browserify](http://browserify.org)
 - [Babel.js](http://babeljs.io)
 - [ESLint](http://eslint.org)
@@ -126,11 +126,11 @@ _There is no Sass linter added yet._
 
 
 
-## Contributing
+## :muscle: Contributing
 Feel free to add, edit or remove anything you want.
 If you want to improve something or have found issues, please let me now by opening an issue here on Github or contact me via mail. Any help is much appreciated.
 
 
 
-## License
+## :copyright: License
 The code is available under [MIT License](https://github.com/morkro/FrontBook/blob/master/LICENSE).
