@@ -1,39 +1,136 @@
 # FrontBook
-FrontBook is a modern frontend boilerplate, enabling you to write **ES6 in production** projects.
+> FrontBook is a small and modern frontend boilerplate, enabling you to write **ES6 today** in production-ready projects.
 
-## Build and deploy your project
-Grunt.js is used to build the project.
-All generated files will be available in the **`public/`** folder.
+FrontBook is made for developers who want to hop on the trending ES6 train, but miss a good starting point on how to set up a project. _It won't explain you how to write ES6._
+
+
+
+## Quick start FrontBook
+### 1. Download the boilerplate
+Choose one of the two options:
+
+* [Download](https://github.com/morkro/FrontBook/archive/master.zip) the repository as `.zip`
+* Clone the git repository `git clone https://github.com/morkro/FrontBook.git`
+
+### 2. Install dependencies
+The next step is to run **`npm install`** in your shell _from the projects directory_. This makes sure all dependencies are installed and you won't run into any errors.
+
+### 3. Build your project
+
+After installing all dependencies, you want to build your project. Run **`grunt dev`** and all files from the `src/` directory will be compiled and copied to the `public/` folder. You can now access the build on **`http://localhost:9000`**.
+
+> `grunt dev` will automatically run `watch`, so that all your changes will immediately
+be visibile.
+
+If you don't want to run the `watch` task and simply build the project, **`grunt build`** is your friend. It's the same as `dev`, but without watching for changes in your code.
+
+
+
+## Working with FrontBook
+
+The actual development takes place in `src/`.
+
+### Structure
+
+#### `assets/`
+All your images, logos, fonts and the like belong here. The folder will simply be copied and moved to `public/assets`. The structure stays the same.
+
+#### `scripts/`
+Because the main reason for **FrontBook** is to be able to write ES6 in production, this must be the more exciting part for you ;) Therefore you don't really have to worry much about the `es5/` folder, as it just contains the generated output from Babel.
+
+Thanks to [Browserify](http://browserify.org/) you can safely use **ES6 modules** in your frontend and for production!
+
+FrontBook doesn't force you to stick to a specific MV* architecture. It simply takes all `es6/*.js` files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to specify them in the [`Gruntfile.js` on **line 40**](https://github.com/morkro/FrontBook/blob/master/Gruntfile.js#L40).
+
+
+#### `styles/`
+This folder contains your Sass and generated CSS.
+
+- ##### `scss/`
+You can either write in `scss` or `sass`. When using the latter, I recommend renaming the folder _(don't forget to also rename in `Gruntfile.js`!)_.
+The Sass architecture is up to you. FrontBook comes with a `main.scss` file and `normalize.scss`.  If you don't know which architecture to use, take a look at [sass-guidelin.es](http://www.sass-guidelin.es).
+
+- ##### `css/`
+Your generated CSS including source maps. You don't have to worry about these files.
+**`main.unprefixed.css`** is the compiled Sass without prefixes.
+**`main.css`** is the output from _Autoprefixer_ and will be moved to `public/main.min.css` after  minifying.
+
+#### `views/`
+**FrontBook** comes with a simple `index.html`, demonstrating how to work with _includes_ and _variables_. The idea is to store all your HTML templates here. When you add more templates, you will also need to add them to your [Grunt configuration](https://github.com/morkro/FrontBook/blob/master/Gruntfile.js#L111).
+
+For further information please take a look at the [**grunt-bake documentation**](https://github.com/MathiasPaumgarten/grunt-bake).
+
+#### `includes/`
+In order to keep the HTML organised and simple, FrontBook uses includes. You can view them as HTML modules, which you just import in your views.
+
+Common use cases are `header.html`, `navigation.html`, `footer.html`, `aside.html` and so on.
+Includes are added via `<!--(bake ../link/to/module.html)-->` in your HTML.
+
+#### `i18n/`
+This is totally optional, but a great feature. It enables you to use variables in your HTML. Check out the [**grunt-bake documentation**](https://github.com/MathiasPaumgarten/grunt-bake) for more information.
+
+If you don't want to use this feature, you can simply ignore it. It won't effect your development.
+
+### Linting
+**ESLint** is the ES6 linter. FrontBook comes with a few predefined rules and settings, but feel free to add and customise more in [`.eslintrc`](https://github.com/morkro/FrontBook/blob/master/.eslintrc).
+
+_There is no Sass linter added yet._
+
+
+
+## Available tasks
+
+#### General
+- **`grunt build`:** This will simply compile and copy all files from `src/` to `public/*`.
+- **`grunt server`:** Starts an [Express](http://expressjs.com/) server on `http://localhost:9000`.
+- **`grunt watch`:** Watches for any changes in `src/` and eventually moves them to `public/`.
+- **`grunt clean`:** Deletes the `public/` folder.
+- **`grunt bake`:** Generates your markup.
+- **`grunt css`:** Compiles your Sass, prefixes via [Autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) and minifies the generated CSS.
+- **`grunt js`:** Lint's your ES6 with [ESLint](https://github.com/sindresorhus/grunt-eslint), [compiles to ES5](https://github.com/jmreidy/grunt-browserify) and finally uglifies it.
 
 #### Development
-For development you simply have to run `grunt dev` and your project can be accessed on `http://localhost:9000`.
 
-- **`grunt dev`:** Creates a server, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it. Everything in watch mode.
+- **`grunt dev`:** This task is best during development. _Code comments are not removed._
 
 #### Production
 
-- **`grunt prod`:** Cleans the _public_ folder, bakes the markup, moves all assets, compiles Sass to CSS and compiles ES6 to ES5 after linting it.
+- **`grunt prod`:** It's similiar to the `build` task, but removes all comments and source maps.
 
-There are also some other tasks available, which are used within above tasks and can be used alone:
 
-- **`grunt css`:** Compiles Sass to CSS, adds prefixe via [Autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) and finally minifies the file.
-- **`grunt js`:** Runs [`grunt browserify`](https://github.com/jmreidy/grunt-browserify) and compiles all ES6 to valid ES5. Linting is done with [ESLint](https://github.com/sindresorhus/grunt-eslint) and eventually uglified.
-- **`grunt server`:** Starts an [Express](http://expressjs.com/) server.
 
 ## Features
-- It's totally up to you which architecture/ design pattern in JavaScript and Sass you want to use.
-- ES6 with [Browserify](http://browserify.org/) _(mainly to use modules in ES5)_ and [Babel](https://babeljs.io/)
+- Includes: [`normalize.css`](http://necolas.github.io/normalize.css/) _(Sassified by [@morkro](https://github.com/morkro))_
+- Gives you the freedom to use any architectural pattern you like
+- ES6 using [Browserify](http://browserify.org/) _(mainly to use modules in ES5)_ and [Babel](https://babeljs.io/).
 - ESLint
-- [`grunt bake`](https://github.com/MathiasPaumgarten/grunt-bake) for modular markup and possible i18n.
+- grunt-bake for modular markup and optional i18n.
 
-## To Do
-- Add unit testing with karma and jasmine
 
-## Usage
-Feel free to add, edit or remove anything you want.
+
+## Browser support
+- Chrome (latest 2)
+- Firefox (latest 2)
+- Internet Explorer 9+ _(You can support IE8 by limiting yourself to a [subset of ES6 features](http://babeljs.io/docs/advanced/caveats/))_
+- Opera (latest 2)
+- Safara (latest 2)
+
+
+
+## Further documentation
+- [Browserify](http://browserify.org)
+- [Babel.js](http://babeljs.io)
+- [ESLint](http://eslint.org)
+- [Sass-Guidelines](http://www.sass-guidelin.es)
+- [grunt-bake](https://github.com/MathiasPaumgarten/grunt-bake)
+
+
 
 ## Contributing
-If you want to improve something or have found any issues, please let me now by opening an issue here on Github or contacting me via mail.
+Feel free to add, edit or remove anything you want.
+If you want to improve something or have found issues, please let me now by opening an issue here on Github or contact me via mail. Any help is much appreciated.
+
+
 
 ## License
-MIT © [Moritz Kröger](http://www.morkro.de)
+The code is available under [MIT License](https://github.com/morkro/FrontBook/blob/master/LICENSE).
