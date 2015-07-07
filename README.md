@@ -20,7 +20,7 @@ The next step is to run **`npm install`** in your shell _from the projects direc
 After installing all dependencies, you want to build your project. Run **`grunt dev`** and all files from the `src/` directory will be compiled and copied to the `public/` folder. You can now access the build on **`http://localhost:9000`**.
 
 > `grunt dev` will automatically run `watch`, so that all your changes will immediately
-be visibile.
+be visible.
 
 If you don't want to run the `watch` task and simply build the project, **`grunt build`** is your friend. It's the same as `dev`, but without watching for changes in your code.
 
@@ -75,6 +75,27 @@ If you don't want to use this feature, you can simply ignore it. It won't effect
 **ESLint** is the ES6 linter. FrontBook comes with a few predefined rules and settings, but feel free to add and customise more in [`.eslintrc`](https://github.com/morkro/FrontBook/blob/master/.eslintrc).
 
 _There is no Sass linter added yet._
+
+### Libraries
+If you want to work with a library like _(Packery, Parallax.js, ...)_ which is not written in ES6 and therefore not a module _(which will most of the time be the case)_, I recommend placing them in a `src/scripts/libs` folder.
+
+You can easily add them to the `uglify` task and declare them as global variable without running into any errors.
+
+**some-module.js**
+
+```
+/*global Packery, Parallax*/
+
+let packery = new Packery();
+...
+```
+**[Gruntfile.js](https://github.com/morkro/FrontBook/blob/master/Gruntfile.js#L50)**
+
+```
+files: {
+	'<%= dir.public %>/app.min.js': ['<%= dir.scripts %>/libs/*.js', '<%= dir.scripts %>/es5/*.js']
+}
+```
 
 
 
