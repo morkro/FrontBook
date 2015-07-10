@@ -77,7 +77,7 @@ If you don't want to use this feature, you can simply ignore it. It won't effect
 _There is no Sass linter added yet._
 
 ### Libraries
-If you want to work with a library like _(Packery, Parallax.js, ...)_ which is not written in ES6 and therefore not a module _(which will most of the time be the case)_, I recommend placing them in a `src/scripts/libs` folder.
+If you want to work with a library _(such as Packery, Parallax.js, ...)_ which is not written in ES6 and therefore not a module _(which will most likely be the case)_, I recommend placing them in a `src/scripts/libs` folder.
 
 You can easily add them to the `uglify` task and declare them as global variable without running into any errors.
 
