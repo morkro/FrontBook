@@ -139,10 +139,15 @@ files: {
 
 
 ## :page_with_curl: Further documentation
+JavaScript
 - [Browserify](http://browserify.org)
 - [Babel.js](http://babeljs.io)
 - [ESLint](http://eslint.org)
+
+Sass
 - [Sass-Guidelines](http://www.sass-guidelin.es)
+
+HTML
 - [grunt-bake](https://github.com/MathiasPaumgarten/grunt-bake)
 
 
