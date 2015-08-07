@@ -1,4 +1,4 @@
-# FrontBook
+# ![FrontBook](https://github.com/morkro/FrontBook/blob/master/src/assets/logo/frontbook.png)
 > FrontBook is a small and modern frontend boilerplate, enabling you to write **ES6 today** in production-ready projects.
 
 FrontBook is made for developers who want to hop on the trending ES6 train, but miss a good starting point on how to set up a project. _It won't explain you how to write ES6._
