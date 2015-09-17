@@ -9,5 +9,9 @@
 
 	"page_index": {
 		"greetings": "Wow, this works!"
+	},
+
+	"page_test": {
+		"lol": "kek"
 	}
 }

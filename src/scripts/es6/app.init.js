@@ -1,4 +1,4 @@
-import { DeveloperGreetings } from './module';
+import DeveloperGreetings from './module';
 
 const HELLO_WORLD = new DeveloperGreetings('Hello ES6!');
 

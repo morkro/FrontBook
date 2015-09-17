@@ -1,4 +1,4 @@
-class DeveloperGreetings {
+export default class DeveloperGreetings {
 	constructor(msg) {
 		this.message = msg;
 	}
@@ -7,5 +7,3 @@ class DeveloperGreetings {
 		console.log(this.message);
 	}
 }
-
-export { DeveloperGreetings };

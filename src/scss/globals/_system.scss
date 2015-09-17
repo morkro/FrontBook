@@ -1,0 +1,27 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: rgba(0,0,0, .1);
+}
+
+header, main {
+	background: white;
+	padding: 15px;
+	margin: 0 auto;
+	width: 50%;
+}
+
+header {
+	margin-top: 50px;
+
+	img {
+		width: 100%;
+	}
+}
+
+main {
+	margin-bottom: 50px;
+}
