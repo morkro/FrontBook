@@ -1,4 +1,4 @@
-<h1 align="center"><img src="https://cdn.rawgit.com/morkro/FrontBook/gulp/src/assets/logo/frontbook-type.svg"></h1>
+<h1 align="center"><img src="https://cdn.rawgit.com/morkro/FrontBook/grunt/src/assets/logo/frontbook-type.svg"></h1>
 
 > FrontBook is a small and modern frontend boilerplate, enabling you to write **ES6 today** in production-ready projects.
 
