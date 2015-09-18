@@ -10,7 +10,8 @@ FrontBook is made for developers who want to hop on the trending ES6 train, but 
 
 FrontBook is currently available for **Grunt** and **gulp**:
 
-| <h3><a href="https://github.com/morkro/FrontBook/tree/grunt"><img src="#" width="150px">: Grunt</a></h3> | [<h3><a href="https://github.com/morkro/FrontBook/tree/gulp"><img src="#" width="150px">: Gulp</a></h3> |
+| <h3><a href="https://github.com/morkro/FrontBook/tree/grunt"><img src="https://cdn.rawgit.com/morkro/FrontBook/master/media/frontbook-logo.svg" width="50px" align="middle" style="margin-right: 15px;">: Grunt</a></h3> | <h3><a href="https://github.com/morkro/FrontBook/tree/gulp"><img src="https://cdn.rawgit.com/morkro/FrontBook/master/media/frontbook-logo.svg" width="50px" align="middle">: Gulp</a></h3> |
+| --- | --- |
 
 Choose one and get started!
 
