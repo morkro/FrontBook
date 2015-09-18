@@ -1,7 +1,8 @@
-# ![FrontBook](https://github.com/morkro/FrontBook/blob/master/src/assets/logo/frontbook.png)
+<h1 align="center"><img src="https://cdn.rawgit.com/morkro/FrontBook/gulp/src/assets/logo/frontbook-type.svg"></h1>
+
 > FrontBook is a small and modern frontend boilerplate, enabling you to write **ES6 today** in production-ready projects.
 
-FrontBook is made for developers who want to hop on the trending ES6 train, but miss a good starting point on how to set up a project. _It won't explain you how to write ES6._
+FrontBook is made for developers who want to hop on the trending ES6 train, but miss a good starting point on how to set up a project.
 
 
 
@@ -10,7 +11,7 @@ FrontBook is made for developers who want to hop on the trending ES6 train, but 
 Choose one of the two options:
 
 * [Download](https://github.com/morkro/FrontBook/archive/master.zip) the repository as `.zip`
-* Clone the git repository `git clone https://github.com/morkro/FrontBook.git`
+* Clone the git repository `git clone https://github.com/morkro/FrontBook.git `
 
 ### 2. Install dependencies
 The next step is to run **`npm install`** in your shell _from the projects directory_. This makes sure all dependencies are installed and you won't run into any errors.
@@ -120,34 +121,20 @@ files: {
 
 
 
-## :gift: Features
-- Includes: [`normalize.css`](http://necolas.github.io/normalize.css/) _(Sassified by [@morkro](https://github.com/morkro))_
-- Gives you the freedom to use any architectural pattern you like
-- ES6 using [Browserify](http://browserify.org/) _(mainly to use modules in ES5)_ and [Babel](https://babeljs.io/).
-- ESLint
-- grunt-bake for modular markup and optional i18n.
-
-
-
-## :bar_chart: Browser support
-- Chrome (latest 2)
-- Firefox (latest 2)
-- Internet Explorer 9+ _(You can support IE8 by limiting yourself to a [subset of ES6 features](http://babeljs.io/docs/advanced/caveats/))_
-- Opera (latest 2)
-- Safara (latest 2)
-
-
-
 ## :page_with_curl: Further documentation
 JavaScript
+
+- [Grunt](http://gruntjs.com/getting-started)
 - [Browserify](http://browserify.org)
 - [Babel.js](http://babeljs.io)
 - [ESLint](http://eslint.org)
 
 Sass
+
 - [Sass-Guidelines](http://www.sass-guidelin.es)
 
 HTML
+
 - [grunt-bake](https://github.com/MathiasPaumgarten/grunt-bake)
 
 

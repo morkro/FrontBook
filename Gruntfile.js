@@ -130,6 +130,17 @@ module.exports = function (grunt) {
 			}
 		},
 		/**
+		 * Creates localhost.
+		 */
+		connect: {
+			server: {
+				options: {
+					port: 9000,
+					base: 'public'
+				}
+			}
+		},
+		/**
 		 * Run predefined tasks whenever watched file patterns are added, changed or deleted.
 		 */
 		watch: {
