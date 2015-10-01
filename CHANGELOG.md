@@ -2,7 +2,13 @@
 
 This file contains all notable changes to this project.
 
-## [0.2.0] - 2015-09-18
+## [1.2.2] - 2015-10-01
+_Jumped two bug versions up, because I pushed an mistake._
+### Changed
+- Updated `package.json` in grunt and gulp branch.
+- Corrected general versioning number
+
+## [1.2.0] - 2015-09-18
 ### Added
 - This `CHANGELOG`.
 - Added `grunt-contrib-connect` and `gulp-connect` for the local server.
@@ -13,5 +19,5 @@ This file contains all notable changes to this project.
 ### Removed
 - Removed `server.js` from both `grunt` and `gulp` setup.
 
-## [0.1.0] - 2015-07-03
+## [1.1.0] - 2015-07-03
 - Initial commit
