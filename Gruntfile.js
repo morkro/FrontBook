@@ -151,7 +151,7 @@ module.exports = function (grunt) {
 			},
 			scripts: {
 				files: ['<%= dir.scripts %>/**/*.js'],
-				tasks: ['browserify', 'eslint', 'uglify']
+				tasks: ['browserify', 'eslint', 'uglify:dev']
 			},
 			markup: {
 				files: [
