@@ -1,6 +1,4 @@
 module.exports = function (grunt) {
-	'use strict';
-
 	// Loads all required grunt tasks
 	require('load-grunt-tasks')(grunt);
 	// Displays execution time of each task
@@ -33,9 +31,7 @@ module.exports = function (grunt) {
 		browserify: {
 			dist: {
 				options: {
-					transform: [
-						['babelify', { loose: 'all' }]
-					],
+					transform: [['babelify', { presets: ['es2015'] }]],
 					browserifyOptions: { debug: true },
 					exclude: ''
 				},
@@ -114,7 +110,7 @@ module.exports = function (grunt) {
 					content: '<%= dir.i18n %>/en.json'
 				},
 				files: {
-					'<%= dir.public %>/index.html': '<%= dir.views %>/index.html',
+					'<%= dir.public %>/index.html': '<%= dir.views %>/index.html'
 				}
 			}
 		},
