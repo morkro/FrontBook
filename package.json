@@ -16,7 +16,7 @@
     "url": "https://github.com/morkro/FrontBook/issues"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">= 5.0.x"
   },
   "devDependencies": {
     "babel-preset-es2015": "6.1.x",
