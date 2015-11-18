@@ -1,7 +1,7 @@
-var gulp = require('gulp');
-var notifier = require('node-notifier');
-var requireDir = require('require-dir');
-var DIST = 'public';
+const gulp = require('gulp');
+const notifier = require('node-notifier');
+const requireDir = require('require-dir');
+const dist = 'public';
 
 requireDir('./tasks');
 
@@ -9,18 +9,16 @@ requireDir('./tasks');
  * Task: gulp build-success
  * Sends notification that build went successfull.
  */
-gulp.task('build-success', function () {
-	return notifier.notify({
-		title: 'Build complete!',
-		message: 'Setup was created successfully.'
-	});
-});
+gulp.task('build-success', () => notifier.notify({
+	title: 'Build complete!',
+	message: 'Setup was created successfully.'
+}));
 
 /**
  * Task: gulp watch
  * Runs through directory and watches for modified files.
  */
-gulp.task('watch', function () {
+gulp.task('watch', () => {
 	gulp.watch('src/assets/**/*', ['copy']);
 	gulp.watch(
 		['src/views/**/*.html', 'src/i18n/**/*.json', 'src/includes/**/*.html'],

@@ -1,11 +1,9 @@
-var gulp = require('gulp');
-var del = require('del');
-var DIST = 'public';
+const gulp = require('gulp');
+const del = require('del');
+const dist = 'public';
 
 /**
  * Task: gulp clean
  * Clean build folder.
  */
-gulp.task('clean', function () {
-	return del(DIST);
-})
+gulp.task('clean', () => del(dist));

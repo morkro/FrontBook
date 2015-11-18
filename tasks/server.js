@@ -1,11 +1,11 @@
-var gulp = require('gulp');
-var connect = require('gulp-connect');
+const gulp = require('gulp');
+const connect = require('gulp-connect');
 
 /**
  * Task: gulp server
  * Starts the web server.
  */
-gulp.task('server', function () {
+gulp.task('server', () => {
 	connect.server({
 		port: 9000,
 		root: 'public'
