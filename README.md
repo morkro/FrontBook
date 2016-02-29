@@ -10,7 +10,7 @@ FrontBook is made for developers who want to hop on the trending ES6 train, but 
 ### 1. Download the boilerplate
 Choose one of the two options:
 
-* [Download](https://github.com/morkro/FrontBook/archive/master.zip) the repository as `.zip`
+* [Download](https://github.com/morkro/FrontBook/archive/grunt.zip) the repository as `.zip`
 * Clone the git repository `git clone https://github.com/morkro/FrontBook.git `
 
 ### 2. Install dependencies
