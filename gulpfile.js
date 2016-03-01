@@ -19,13 +19,13 @@ gulp.task('build-success', () => notifier.notify({
  * Runs through directory and watches for modified files.
  */
 gulp.task('watch', () => {
-	gulp.watch('src/assets/**/*', ['copy']);
+	gulp.watch('src/assets/**/*', ['copy', 'views', 'css', 'js']);
 	gulp.watch(
 		['src/views/**/*.html', 'src/i18n/**/*.json', 'src/includes/**/*.html'],
-		['views']
+		['copy', 'views', 'css', 'js']
 	);
-	gulp.watch('src/scss/**/*.scss', ['css']);
-	gulp.watch('src/scripts/es6/**/*.js', ['js']);
+	gulp.watch('src/scss/**/*.scss', ['copy', 'views', 'css', 'js']);
+	gulp.watch('src/scripts/es6/**/*.js', ['copy', 'views', 'css', 'js']);
 });
 
 /**

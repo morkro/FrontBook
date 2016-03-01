@@ -5,7 +5,7 @@ const dist = 'public';
  * Task: gulp copy
  * Move all assets.
  */
-gulp.task('copy', () =>
+gulp.task('copy', ['clean'], () =>
 	gulp.src('src/assets/**/*', { base: 'src' })
 	.pipe( gulp.dest(dist) )
 );

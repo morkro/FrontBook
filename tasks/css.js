@@ -9,7 +9,7 @@ const dist = 'public';
  * Task: gulp css
  * Compile Sass to valid CSS, add prefix and minify.
  */
-gulp.task('css', () => gulp.src('src/scss/main.scss')
+gulp.task('css', ['clean'], () => gulp.src('src/scss/main.scss')
 	.pipe( sass({ style: 'compact' }) )
 	.pipe( autoprefixer('last 2 versions') )
 	.pipe( rename({ suffix: '.min' }) )
