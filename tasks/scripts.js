@@ -13,7 +13,7 @@ const dist = 'public';
  * Task: gulp lint
  * Lints ES6.
  */
-gulp.task('lint', () => gulp.src('src/scripts/es6/**/*.js')
+gulp.task('lint', ['clean'], () => gulp.src('src/scripts/es6/**/*.js')
 	.pipe( eslint() )
 	.pipe( eslint.format(tap) )
 	.pipe( eslint.failOnError() )

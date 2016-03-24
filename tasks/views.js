@@ -8,7 +8,7 @@ const dist = 'public';
  * Task: gulp views
  * Creates all markup templates.
  */
-gulp.task('views', () => gulp.src('src/views/**/*.html')
+gulp.task('views', ['clean'], () => gulp.src('src/views/**/*.html')
 	.pipe( fileinclude({
 		prefix: '@@',
 		basepath: 'src/includes/'
