@@ -1,7 +1,7 @@
-<h1 align="center"><img src="https://cdn.rawgit.com/morkro/FrontBook/gulp/src/assets/logo/frontbook-type.svg"></h1>
-> FrontBook is a small and modern frontend boilerplate, enabling you to write **ES6 today** in production-ready projects.
+<h1 align="center"><img src="https://cdn.rawgit.com/morkro/FrontBook/e1e12cea9bbdd0746c21f2f1fb991bedb32cdd7d/src/assets/logo/frontbook-type.svg"></h1>
+> FrontBook is a small and modern frontend boilerplate, enabling you to write **ES201* today** in production-ready projects.
 
-FrontBook is made for developers who want to hop on the trending ES6 train, but miss a good starting point on how to set up a project.
+FrontBook is made for developers who want to hop on the trending ES201* train, but miss a good starting point on how to set up a project.
 
 
 
@@ -37,11 +37,11 @@ All your images, logos, fonts and the like belong here. The folder will simply b
 
 
 #### `scripts/`
-Because the main reason for **FrontBook** is to be able to write ES6 in production, this must be the more exciting part for you ;) Therefore you don't really have to worry much about the `es5/` folder, as it just contains the generated output from Babel.
+Because the main reason for **FrontBook** is to be able to write ES201* in production, this must be the more exciting part for you ;) Therefore you don't really have to worry much about the `es5/` folder, as it just contains the generated output from Babel.
 
-Thanks to [Browserify](http://browserify.org/) you can safely use **ES6 modules** in your frontend and for production!
+Thanks to [Browserify](http://browserify.org/) you can safely use **ES201* modules** in your frontend and for production!
 
-FrontBook doesn't force you to stick to a specific MV* architecture. It simply takes all `es6/*.js` files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to specify them in [`tasks/js.js`](https://github.com/morkro/FrontBook/blob/gulp/tasks/scripts.js#L32) of the `browserify` task.
+FrontBook doesn't force you to stick to a specific MV* architecture. It simply takes all `ES201*/*.js` files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to specify them in [`tasks/js.js`](https://github.com/morkro/FrontBook/blob/gulp/tasks/scripts.js#L32) of the `browserify` task.
 
 
 #### `scss/`
@@ -69,13 +69,13 @@ If you don't want to use this feature, you have to remove the `gulp data` and `g
 
 
 ### Linting
-**ESLint** is the ES6 linter. FrontBook comes with a few predefined rules and settings, but feel free to add and customise more in [`.eslintrc`](https://github.com/morkro/FrontBook/tree/gulp/.eslintrc).
+**ESLint** is the ES201* linter. FrontBook comes with a few predefined rules and settings, but feel free to add and customise more in [`.eslintrc`](https://github.com/morkro/FrontBook/tree/gulp/.eslintrc).
 
 _There is no Sass linter added yet._
 
 
 ### Libraries
-If you want to work with a library _(such as Packery, Parallax.js, ...)_ which is not written in ES6 and therefore not a module _(which will most likely be the case)_, I recommend placing them in a `src/scripts/libs` folder.
+If you want to work with a library _(such as Packery, Parallax.js, ...)_ which is not written in ES201* and therefore not a module _(which will most likely be the case)_, I recommend placing them in a `src/scripts/libs` folder.
 
 You can easily add them to the `uglify` task and declare them as global variable without running into any errors.
 
@@ -90,7 +90,7 @@ let packery = new Packery();
 **[tasks/scripts.js](https://github.com/morkro/FrontBook/blob/gulp/tasks/scripts.js#L28)**
 
 ```
-var files = glob.sync(['src/scripts/es6/**/*.js', 'src/scripts/libs/*.js']);
+var files = glob.sync(['src/scripts/ES201*/**/*.js', 'src/scripts/libs/*.js']);
 ```
 
 
@@ -104,7 +104,7 @@ var files = glob.sync(['src/scripts/es6/**/*.js', 'src/scripts/libs/*.js']);
 - **`gulp clean`:** Deletes the `public/` folder.
 - **`gulp views`:** Generates your markup.
 - **`gulp css`:** Compiles your Sass, prefixes via [Autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) and minifies the generated CSS.
-- **`gulp js`:** Lint's your ES6 with [ESLint](https://github.com/sindresorhus/grunt-eslint), [compiles to ES5](https://github.com/jmreidy/grunt-browserify) and finally uglifies it.
+- **`gulp js`:** Lint's your ES201* with [ESLint](https://github.com/sindresorhus/grunt-eslint), [compiles to ES5](https://github.com/jmreidy/grunt-browserify) and finally uglifies it.
 
 #### Development
 

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.3.2 (4th January, 2017)
+### Changed
+- Updated broken logo
+- Introducing branch specific CHANGELOG
+- Changed `ES6` to `ES201*` in README
+
 ## 1.3.1 (26th January, 2016)
 ### Changed
 - Updated dependencies in `package.json`
