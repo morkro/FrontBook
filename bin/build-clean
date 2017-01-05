@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+const pkg = require('../package.json')
+const config = require('../config.json')
+const path = require('path')
+const { emptyDir, mkdirp } = require('fs-promise')
+const debug = require('debug')(`${pkg.name}:build:clean`)
+
+const distDirectory = path.resolve(config.directories.dist)
+
+module.exports = () => {
+	debug(`emptying "${config.directories.dist}"`)
+	return emptyDir(distDirectory)
+		.then(() => mkdirp(distDirectory))
+}

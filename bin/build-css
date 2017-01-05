@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+const path = require('path')
+const pkg = require('../package.json')
+const { directories } = require('../config.json')
+const { outputFile } = require('fs-promise')
+const sass = require('node-sass')
+const postcss = require('postcss')
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
+const debug = require('debug')(`${pkg.name}:build:css`)
+
+const { NODE_ENV } = process.env
+
+/**
+ * Returns the PostCSS plugins based on `NODE_ENV`.
+ * @return {Array}
+ */
+function definePostCssPlugins () {
+	const plugins = [autoprefixer({ browsers: ['last 2 versions'] })]
+
+	if (NODE_ENV === 'production') {
+		plugins.push(cssnano)
+	}
+
+	return plugins
+}
+
+/**
+ * Compiles the Sass files to CSS, returns it in a Promise.
+ * @return {Promise}
+ */
+function compileSass () {
+	return new Promise((resolve, reject) => {
+		sass.render({
+			file: path.resolve(`${directories.sourceFiles}/styles/index.scss`),
+			outFile: path.resolve(`${directories.dist}/main.css`),
+			outputStyle: (NODE_ENV === 'production') ? 'compressed' : 'nested'
+		}, (error, compiled) => {
+			if (error) reject(error)
+			resolve(compiled)
+		})
+	})
+}
+
+/**
+ * Takes the compiled CSS from Sass renderer and applies PostCSS plugins.
+ * @param {String} css
+ * @return {Promise}
+ */
+function applyPostCSS ({ css }) {
+	return postcss(definePostCssPlugins())
+		.process(css)
+		.then(result => outputFile(
+			path.resolve(`${directories.dist}/main.css`),
+			result.css
+		))
+}
+
+module.exports = (message = 'build CSS files') => {
+	debug(message)
+	return compileSass()
+		.then(applyPostCSS)
+		.catch(debug)
+}

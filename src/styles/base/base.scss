@@ -1,0 +1,17 @@
+* {
+	box-sizing: border-box;
+	text-rendering: optimizeSpeed;
+}
+
+html {
+	height: 100vh;
+}
+
+body {
+	background: rgba(0,0,0, .1);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

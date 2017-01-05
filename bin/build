@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+const pkg = require('../package.json')
+const cleanDist = require('./build-clean')
+const copyAssets = require('./copy-assets')
+const createHTML = require('./build-html')
+const createCSS = require('./build-css')
+const createJS = require('./build-js')
+const watch = require('./watch')
+const server = require('../server')
+const debug = require('debug')(`${pkg.name}:build`)
+
+const { NODE_ENV } = process.env
+
+debug(`starting ${NODE_ENV} build`)
+
+cleanDist()
+	.then(() => copyAssets())
+	.then(() => createHTML())
+	.then(() => createCSS())
+	.then(() => createJS())
+	.then(() => {
+		if (NODE_ENV === 'static') {
+			return Promise.resolve()
+		}
+		return server()
+	})
+	.then(() => {
+		if (NODE_ENV === 'production' || NODE_ENV === 'static') {
+			debug('✔︎ your application has been build')
+			return process.exit(0)
+		}
+		return watch()
+	})
+	.catch(debug)
