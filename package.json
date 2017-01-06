@@ -43,8 +43,5 @@
     "nunjucks": "^3.0.0",
     "postcss": "^5.2.8",
 		"uglify-js": "^2.7.5",
-    "rimraf": "^2.5.4",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.6.3"
   }
 }
