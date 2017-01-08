@@ -50,6 +50,8 @@ function getTemplateData () {
 
 module.exports = (message = 'building HTML files') => {
 	debug(message)
+
+	// If multiple views need to be rendered, wrap them in `Promise.all([])`.
 	return renderHTML('./index.html', getTemplateData())
 		.then(file => html(file, prettyConfig))
 		.then(file => outputFile(`${directories.dist}/index.html`, file, 'utf8'))
