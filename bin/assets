@@ -2,7 +2,7 @@
 const pkg = require('../package.json')
 const { directories } = require('../config.json')
 const { outputFile, readFile, copy } = require('fs-promise')
-const debug = require('debug')(`${pkg.name}:assets`)
+const debug = require('debug')(`${pkg.name}:build:assets`)
 
 /**
  * Adds all info from `package.json` to a given file.
