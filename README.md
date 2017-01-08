@@ -86,7 +86,7 @@ An overview of each folder:
 		<tr>
 			<td><code>images/</code></td>
 			<td>
-				Contains all images for your project. You could also argue to move them into <code>meta/</code>, or rename the folder to something like <code>assets/</code>. I prefer them separated to have a seperate, unique build task. Currently, images are just copied to <code>dist/</code> but there could also be added an additional image optimization task.
+				Contains all images for your project. You could also argue to move them into <code>meta/</code>, or rename the folder to something like <code>assets/</code>. I prefer them separated to have a seperate, unique build task. Currently, images are just copied to <code>dist/</code> but there could also be added an additional image optimization step.
 			</td>
 			<td>
 				<a href="https://github.com/morkro/FrontBook/blob/master/bin/assets#L58"><code>bin/assets</code></a>
@@ -123,7 +123,7 @@ An overview of each folder:
 		<tr>
 			<td><code>styles/</code></td>
 			<td>
-				FrontBook uses Sass for styling, but it can also easily replaced with any other postprocessor language. The architecture is up to you; if you don't know which architecture to use, take a look at [sass-guidelin.es](http://sass-guidelin.es).
+				FrontBook uses Sass for styling, but it can also easily replaced with any other postprocessor language. The architecture is up to you; if you don't know which architecture to use, take a look at <a href="http://sass-guidelin.es">sass-guidelin.es</a<.
 			</td>
 			<td>
 				<a href="https://github.com/morkro/FrontBook/blob/master/bin/css"><code>bin/css</code></a>
