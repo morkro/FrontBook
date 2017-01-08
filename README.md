@@ -80,13 +80,13 @@ An overview of each folder:
 				Contains all required data <em>(e.g. copy, image meta data, ...)</em> for your views. It is passed to <a href="https://github.com/morkro/FrontBook/blob/master/bin/html#L42">nunjucks</a> when it renders a view.
 			</td>
 			<td>
-				<a href="https://github.com/morkro/FrontBook/blob/master/bin/html"><code>bin/build-html</code></a>
+				<a href="https://github.com/morkro/FrontBook/blob/master/bin/html"><code>bin/html</code></a>
 			</td>
 		</tr>
 		<tr>
 			<td><code>images/</code></td>
 			<td>
-				Contains all images for your project. You could also argue to move them into `meta/`, or rename the folder to something like `assets/`. I prefer them separated to have a seperate, unique build task. Currently, images are just copied to `dist/` but there could also be added an additional image optimization task.
+				Contains all images for your project. You could also argue to move them into <code>meta/</code>, or rename the folder to something like <code>assets/</code>. I prefer them separated to have a seperate, unique build task. Currently, images are just copied to <code>dist/</code> but there could also be added an additional image optimization task.
 			</td>
 			<td>
 				<a href="https://github.com/morkro/FrontBook/blob/master/bin/assets#L58"><code>bin/assets</code></a>
@@ -95,7 +95,7 @@ An overview of each folder:
 		<tr>
 			<td><code>markup/</code></td>
 			<td>
-				All the views. If your project is a single page application you might just keep the `index.html` and work with additional includes and partials. If there are more views, such as `about.html`, they need to be added to the <a href="https://github.com/morkro/FrontBook/blob/master/bin/html">build task</a>.
+				All the views. If your project is a single page application you might just keep the <code>index.html</code> and work with additional includes and partials. If there are more views, such as <code>about.html</code>, they need to be added to the <a href="https://github.com/morkro/FrontBook/blob/master/bin/html">build task</a>.
 			</td>
 			<td>
 				<a href="https://github.com/morkro/FrontBook/blob/master/bin/html"><code>bin/html</code></a>
@@ -104,7 +104,7 @@ An overview of each folder:
 		<tr>
 			<td><code>meta/</code></td>
 			<td>
-				FrontBook keeps meta files like `humans.txt` or a `manifest.json` here. Some of them might have their own <a href="https://github.com/morkro/FrontBook/blob/master/bin/assets#L12">build step</a>, but all are eventually copied to `dist/`. If you want to have specific modifications for any meta file, add them to <a href="https://github.com/morkro/FrontBook/blob/master/bin/assets"><code>bin/assets</code></a>.
+				FrontBook keeps meta files like <code>humans.txt</code> or a <code>manifest.json</code> here. Some of them might have their own <a href="https://github.com/morkro/FrontBook/blob/master/bin/assets#L12">build step</a>, but all are eventually copied to <code>dist/</code>. If you want to have specific modifications for any meta file, add them to <a href="https://github.com/morkro/FrontBook/blob/master/bin/assets"><code>bin/assets</code></a>.
 			</td>
 			<td>
 				<a href="https://github.com/morkro/FrontBook/blob/master/bin/assets"><code>bin/assets</code></a>
@@ -113,8 +113,8 @@ An overview of each folder:
 		<tr>
 			<td><code>scripts/</code></td>
 			<td>
-				Because the main reason for FrontBook is to be able to write ES201\* in production, this must be the more exciting part. <br>
-				FrontBook doesn't force you to stick to a specific MV\* architecture. It simply takes all `.js` files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to <a href="https://github.com/morkro/FrontBook/blob/master/bin/js#L20">specify</a> them in the build step.
+				Because the main reason for FrontBook is to be able to write ES201* in production, this must be the more exciting part. <br>
+				FrontBook doesn't force you to stick to a specific MV* architecture. It simply takes all <code>.js</code> files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to <a href="https://github.com/morkro/FrontBook/blob/master/bin/js#L20">specify</a> them in the build step.
 			</td>
 			<td>
 				<a href="https://github.com/morkro/FrontBook/blob/master/bin/js"><code>bin/js</code></a>
