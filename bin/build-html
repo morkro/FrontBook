@@ -16,8 +16,8 @@ const prettyConfig = {
 	indent_with_tabs: true,
 	wrap_line_length: 100,
 	end_with_newline: true,
-	preserve_newlines: false,
-	extra_liners: []
+	preserve_newlines: false, // Removes blank lines left by nunjucks syntax
+	extra_liners: [] // Removes new lines after <html>, <body>, and <head>
 }
 
 /**
