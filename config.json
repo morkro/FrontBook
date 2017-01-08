@@ -1,6 +1,6 @@
 {
 	"directories": {
 		"dist": "./dist",
-		"sourceFiles": "./src"
+		"src": "./src"
 	}
 }

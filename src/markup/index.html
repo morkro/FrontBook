@@ -1,22 +1,23 @@
+{% from "partials/head.html" import head %}
+
 <!DOCTYPE html>
-<html lang="{{ meta.locale }}">
-{% include "partials/meta.html" %}
+<html lang="en">
+	{{ head(meta) }}
 <body>
 	<header>
-		<a href="https://github.com/morkro/frontbook" target="_blank">
-			<img src="/images/frontbook.svg" alt="FrontBook" title="FrontBook">
+		<a href="{{ assets.logo.url }}" target="_blank">
+			<img src="{{ assets.logo.src }}" alt="{{ assets.logo.caption }}" title="{{ assets.logo.caption }}">
 		</a>
 	</header>
 
 	<main role="main">
-		<img src="/images/thumbsup.gif" alt="Thumbs up!" title="Thumbs up!">
+		<img src="{{ assets.gif.src }}" alt="{{ assets.gif.caption }}" title="{{ assets.gif.caption }}">
 	</main>
 
 	<footer>
 		<p>
-			<a href="https://github.com/morkro/frontbook" target="_blank"><strong>FrontBook</strong></a> is an open source project.
-			Feel free to add, edit or remove anything you want. If you want to improve something or have found issues, please let me now by <a href="https://github.com/morkro/frontbook/issues" target="_blank">opening an issue</a> on Github.
-			Any help is much appreciated.
+			<a href="{{ assets.logo.url }}" target="_blank"><strong>FrontBook</strong></a> is an open source project.
+			{{ content.contribution.text }}
 		</p>
 	</footer>
 </body>

@@ -26,7 +26,7 @@ Run **`npm install`** in your terminal _from the FrontBook directory_. This make
 ### 3. Build your project
 After installing all dependencies, you want to build your project. **`npm run dev`** will generate all files from the `src/` directory and move them to `dist/`. You can now access the build on **`http://localhost:9000`**.
 
-> `npm run dev` will automatically `watch` all your source files!
+> `npm run dev` will automatically `watch` all your source files for any changes!
 
 If you don't to watch all your files but only build the project once, **`npm run build`** is your friend.
 
@@ -37,7 +37,6 @@ All your source files are located in `src/`.
 AST.
 
 ## 🔧 Available tasks
-#### General
 | Command | Description |
 | ------- | ----------- |
 | **`npm run build`** | Generates, compiles, and transpiles all files from `src/` to `dist/.` |

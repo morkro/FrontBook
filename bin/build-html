@@ -2,33 +2,56 @@
 const pkg = require('../package.json')
 const path = require('path')
 const { directories } = require('../config.json')
-const { outputFile } = require('fs-promise')
+const { outputFile, readJsonSync } = require('fs-promise')
 const nunjucks = require('nunjucks')
+const { html } = require('js-beautify')
 const debug = require('debug')(`${pkg.name}:build:html`)
 
 const { NODE_ENV } = process.env
 const environment = nunjucks.configure(
-	path.resolve(`${directories.sourceFiles}/markup`),
+	path.resolve(`${directories.src}/markup`),
 	{ watch: NODE_ENV === 'development' }
 )
+const prettyConfig = {
+	indent_with_tabs: true,
+	wrap_line_length: 100,
+	end_with_newline: true,
+	preserve_newlines: false,
+	extra_liners: []
+}
 
 /**
  * Renders the HTML views via nunjucks.
  * @param {String} renderPath
+ * @param {Object} data
  * @return {Promise}
  */
-function renderHTML (renderPath = './index.html') {
+function renderHTML (renderPath = './index.html', data = {}) {
 	return new Promise((resolve, reject) => {
-		environment.render(renderPath, (error, response) => {
+		environment.render(renderPath, data, (error, response) => {
 			if (error) reject(error)
 			resolve(response)
 		})
 	})
 }
 
+/**
+ * Merges all data JSON's to one single template object.
+ * @return {Object}
+ */
+function getTemplateData () {
+	return Object.assign(
+		{},
+		{ meta: readJsonSync(`${directories.src}/data/meta.json`) },
+		{ assets: readJsonSync(`${directories.src}/data/assets.json`) },
+		{ content: readJsonSync(`${directories.src}/data/content.json`) }
+	)
+}
+
 module.exports = (message = 'building HTML files') => {
 	debug(message)
-	return renderHTML('./index.html')
+	return renderHTML('./index.html', getTemplateData())
+		.then(file => html(file, prettyConfig))
 		.then(file => outputFile(`${directories.dist}/index.html`, file, 'utf8'))
 		.catch(debug)
 }

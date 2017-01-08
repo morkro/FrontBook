@@ -21,7 +21,7 @@ function transpile ({
 	plugins = []
 } = {}) {
 	return new Promise((resolve, reject) => {
-		const stream = browserify(`${directories.sourceFiles}/scripts/${fileName}.js`)
+		const stream = browserify(`${directories.src}/scripts/${fileName}.js`)
 			.ignore(ignoreFile)
 			.transform('babelify', { plugins, presets: ['latest'] })
 			.bundle()

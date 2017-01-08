@@ -32,7 +32,7 @@ function definePostCssPlugins () {
 function compileSass () {
 	return new Promise((resolve, reject) => {
 		sass.render({
-			file: path.resolve(`${directories.sourceFiles}/styles/index.scss`),
+			file: path.resolve(`${directories.src}/styles/index.scss`),
 			outFile: path.resolve(`${directories.dist}/main.css`),
 			outputStyle: (NODE_ENV === 'production') ? 'compressed' : 'nested'
 		}, (error, compiled) => {
