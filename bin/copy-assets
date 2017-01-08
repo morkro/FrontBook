@@ -38,11 +38,12 @@ function addDateToFile (file) {
 
 /**
  * Updates `humans.txt` with package info and moves it to dist directory.
+ * @param {String} message
  * @return {Promise}
  */
-function updateHumansTxt () {
-	debug('updating humans.txt')
-	return readFile(`${directories.sourceFiles}/meta/humans.txt`, 'utf8')
+function updateHumansTxt (message = 'updating humans.txt') {
+	debug(message)
+	return readFile(`${directories.src}/meta/humans.txt`, 'utf8')
 		.then(addPackageInfo)
 		.then(addDateToFile)
 		.then(file => outputFile(`${directories.dist}/humans.txt`, file))
@@ -51,17 +52,18 @@ function updateHumansTxt () {
 
 /**
  * Moves all images to dist directory.
+ * @param {String} message
  * @return {Promise}
  */
-function copyImages () {
-	debug('moving all images')
+function copyImages (message = 'moving all images') {
+	debug(message)
 	return copy(
-		`${directories.sourceFiles}/images`,
+		`${directories.src}/images`,
 		`${directories.dist}/images`,
 		{ clobber: true }
 	).catch(debug)
 }
 
-module.exports = () =>
-	copyImages()
-		.then(() => updateHumansTxt())
+module.exports = (messages = {}) =>
+	copyImages(messages.copyImages)
+		.then(() => updateHumansTxt(messages.humansTxt))
