@@ -11,7 +11,8 @@ const debug = require('debug')(`${pkg.name}:assets`)
  */
 function addPackageInfo (file) {
 	const dependencies = Object.keys(pkg.dependencies)
-		.map(dep => `${dep}@${pkg.dependencies[dep].slice(1)}`).join(', ')
+		.map(dep => `${dep}@${pkg.dependencies[dep].slice(1)}`)
+		.join(', ')
 
 	return file
 		.replace(/<name>/g, pkg.author.name)

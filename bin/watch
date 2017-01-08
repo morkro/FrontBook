@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 const pkg = require('../package.json')
 const { directories: src } = require('../config.json')
-const copyAssets = require('./copy-assets')
-const createHTML = require('./build-html')
-const createCSS = require('./build-css')
-const createJS = require('./build-js')
+const copyAssets = require('./assets')
+const createHTML = require('./html')
+const createCSS = require('./css')
+const createJS = require('./js')
 const watch = require('node-watch')
 const debug = require('debug')(`${pkg.name}:watcher`)
 
