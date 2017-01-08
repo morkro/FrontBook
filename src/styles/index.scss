@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+
+@import
+	'vendors/_normalize';
+
+@import
+	'base/base';
+
+@import
+	'layout/header',
+	'layout/content',
+	'layout/footer';

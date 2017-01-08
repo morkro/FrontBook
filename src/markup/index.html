@@ -1,0 +1,24 @@
+{% from "partials/head.html" import head %}
+
+<!DOCTYPE html>
+<html lang="en">
+	{{ head(meta) }}
+<body>
+	<header>
+		<a href="{{ assets.logo.url }}" target="_blank">
+			<img src="{{ assets.logo.src }}" alt="{{ assets.logo.caption }}" title="{{ assets.logo.caption }}">
+		</a>
+	</header>
+
+	<main role="main">
+		<img src="{{ assets.gif.src }}" alt="{{ assets.gif.caption }}" title="{{ assets.gif.caption }}">
+	</main>
+
+	<footer>
+		<p>
+			<a href="{{ assets.logo.url }}" target="_blank"><strong>FrontBook</strong></a> is an open source project.
+			{{ content.contribution.text }}
+		</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: white;
+	padding: 15px;
+	width: 50%;
+
+	img {
+		width: 50%;
+		height: auto;
+	}
+}

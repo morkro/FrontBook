@@ -1,0 +1,11 @@
+{
+	"logo": {
+		"caption": "FrontBook",
+		"src": "/images/frontbook.svg",
+		"url": "https://github.com/morkro/frontbook"
+	},
+	"gif": {
+		"caption": "Thumbs up!",
+		"src": "/images/thumbsup.gif"
+	}
+}

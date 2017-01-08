@@ -1,0 +1,49 @@
+{
+  "name": "frontbook",
+  "version": "1.0.0",
+  "description": "FrontBook is a small and modern frontend boilerplate, enabling you to write ES201* today in production-ready projects.",
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "DEBUG=frontbook:build:* BUILD_TASK=clean node bin/build",
+    "dev": "NODE_ENV=development DEBUG=frontbook:* node bin/build",
+    "build": "NODE_ENV=static DEBUG=frontbook:* node bin/build",
+    "start": "NODE_ENV=production DEBUG=frontbook:* node bin/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "morkro/frontbook#npm-scripts"
+  },
+  "author": {
+    "name": "Moritz Kröger",
+    "email": "write@morkro.de"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/morkro/frontbook/issues"
+  },
+  "homepage": "https://github.com/morkro/frontbook#readme",
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.6.1",
+    "babel": "^6.5.2",
+    "babel-core": "^6.21.0",
+    "babel-preset-latest": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.3.0",
+    "cssnano": "^3.10.0",
+    "debug": "^2.6.0",
+    "express": "^4.14.0",
+    "fs-promise": "^1.0.0",
+    "js-beautify": "^1.6.8",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.1.1",
+    "node-watch": "^0.4.1",
+    "nunjucks": "^3.0.0",
+    "postcss": "^5.2.8",
+    "uglify-js": "^2.7.5"
+  }
+}

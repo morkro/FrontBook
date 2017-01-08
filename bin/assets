@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+const pkg = require('../package.json')
+const { directories } = require('../config.json')
+const { outputFile, readFile, copy } = require('fs-promise')
+const debug = require('debug')(`${pkg.name}:build:assets`)
+
+/**
+ * Adds all info from `package.json` to a given file.
+ * @param {String} file
+ * @return {String}
+ */
+function addPackageInfo (file) {
+	const dependencies = Object.keys(pkg.dependencies)
+		.map(dep => `${dep}@${pkg.dependencies[dep].slice(1)}`)
+		.join(', ')
+
+	return file
+		.replace(/<name>/g, pkg.author.name)
+		.replace(/<email>/g, pkg.author.email)
+		.replace(/<dependencies>/g, dependencies)
+}
+
+/**
+ * Overwrites `YYYY/MM/DD` in a file with the current date.
+ * @param {String} file
+ * @return {String}
+ */
+function addDateToFile (file) {
+	const date = new Date()
+	const year = date.getUTCFullYear()
+	let month = date.getUTCMonth() + 1
+	let day = date.getUTCDate()
+
+	if (month < 10) month = `0${month}`
+	if (day < 10) day = `0${day}`
+
+	return file.replace('YYYY/MM/DD', `${year}/${month}/${day}`)
+}
+
+/**
+ * Updates `humans.txt` with package info and moves it to dist directory.
+ * @param {String} message
+ * @return {Promise}
+ */
+function updateHumansTxt (message = 'updating humans.txt') {
+	debug(message)
+	return readFile(`${directories.src}/meta/humans.txt`, 'utf8')
+		.then(addPackageInfo)
+		.then(addDateToFile)
+		.then(file => outputFile(`${directories.dist}/humans.txt`, file))
+		.catch(debug)
+}
+
+/**
+ * Moves all images to dist directory.
+ * @param {String} message
+ * @return {Promise}
+ */
+function copyImages (message = 'moving all images') {
+	debug(message)
+	return copy(
+		`${directories.src}/images`,
+		`${directories.dist}/images`,
+		{ clobber: true }
+	).catch(debug)
+}
+
+module.exports = (messages = {}) =>
+	copyImages(messages.copyImages)
+		.then(() => updateHumansTxt(messages.humansTxt))

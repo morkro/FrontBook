@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+const pkg = require('../package.json')
+const { directories } = require('../config.json')
+const copyAssets = require('./assets')
+const createHTML = require('./html')
+const createCSS = require('./css')
+const createJS = require('./js')
+const watch = require('node-watch')
+const debug = require('debug')(`${pkg.name}:watcher`)
+
+const { src } = directories
+
+function fileChanged (file) {
+	return debug(`"${file}" changed`)
+}
+
+module.exports = () => {
+	debug('start watching files')
+
+	watch([`${src}/markup`, `${src}/data`], (file) => {
+		fileChanged(file)
+		createHTML('rebuilding HTML files')
+	})
+
+	watch(`${src}/styles`, (file) => {
+		fileChanged(file)
+		createCSS('rebuilding CSS files')
+	})
+
+	watch(`${src}/scripts`, (file) => {
+		fileChanged(file)
+		createJS('retranspiling JavaScript files')
+	})
+
+	watch([`${src}/images`, `${src}/meta`], (file) => {
+		fileChanged(file)
+		copyAssets()
+	})
+}
