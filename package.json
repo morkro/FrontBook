@@ -4,6 +4,7 @@
   "description": "FrontBook is a small and modern frontend boilerplate, enabling you to write ES201* today in production-ready projects.",
   "scripts": {
     "lint": "eslint .",
+    "clean": "DEBUG=frontbook:build:* BUILD_TASK=clean node bin/build",
     "dev": "NODE_ENV=development DEBUG=frontbook:* node bin/build",
     "build": "NODE_ENV=static DEBUG=frontbook:* node bin/build",
     "start": "NODE_ENV=production DEBUG=frontbook:* node bin/build"

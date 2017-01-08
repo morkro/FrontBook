@@ -9,7 +9,12 @@ const watch = require('./watch')
 const server = require('../server')
 const debug = require('debug')(`${pkg.name}:build`)
 
-const { NODE_ENV } = process.env
+const { NODE_ENV, BUILD_TASK } = process.env
+
+if (BUILD_TASK === 'clean') {
+	cleanDist()
+	process.exit(0)
+}
 
 debug(`starting ${NODE_ENV} build`)
 
