@@ -13,38 +13,135 @@ FrontBook comes with different setups, `npm scripts` being the default:
 
 Choose one and get started!
 
-## 💾 Quick start FrontBook
+## 💾 Quick Start FrontBook
 ### 1. Download the boilerplate
 Choose one of the two options:
 
 * [Download](https://github.com/morkro/FrontBook/archive/master.zip) the repository as `.zip`
 * `git clone` the repository
 
-### 2. Install dependencies
+### 2. Install Dependencies
 Run **`npm install`** in your terminal _from the FrontBook directory_. This makes sure all dependencies are installed and you won't run into any errors.
 
-### 3. Build your project
+### 3. Build Your Project
 After installing all dependencies, you want to build your project. **`npm run dev`** will generate all files from the `src/` directory and move them to `dist/`. You can now access the build on **`http://localhost:9000`**.
 
 > `npm run dev` will automatically `watch` all your source files for any changes!
 
 If you don't to watch all your files but only build the project once, **`npm run build`** is your friend.
 
-## 🛠 Working with FrontBook
-All your source files are located in `src/`.
+## 🛠 Directory Structure
+All your source files are located in `src/` and structured as follows:
 
-### Structure
-AST.
+```
+data/
+├── meta.json
+├── content.json
+└── ...
+images/
+├── frontbook.svg
+└── ...
+markup/
+├── partials/
+│   └── head.html
+└── index.html
+meta/
+├── humans.txt
+└── ...
+scripts/
+├── components/
+│   └── welcome.js
+└── index.js
+styles/
+├── base/
+│   └── ...
+├── layout/
+│   ├── header.scss
+│   └── ...
+├── vendors/
+│   └── ...
+└── index.scss
+```
 
-## 🔧 Available tasks
+An overview of each folder:
+
+<table>
+	<thead>
+		<tr>
+			<th style="width:10%">Folder</th>
+			<th style="width:65%">Description</th>
+			<th style="width:15%">Executable</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>`data/`</td>
+			<td>
+				Contains all required data <em>(e.g. copy, image meta data, ...)</em> for your views. It is passed to [nunjucks](https://github.com/morkro/FrontBook/blob/master/bin/html#L42) when it renders a view.
+			</td>
+			<td>
+				[`bin/build-html`](https://github.com/morkro/FrontBook/blob/master/bin/html)
+			</td>
+		</tr>
+		<tr>
+			<td>`images/`</td>
+			<td>
+				Contains all images for your project. You could also argue to move them into `meta/`, or rename the folder to something like `assets/`. I prefer them separated to have a seperate, unique build task. Currently, images are just copied to `dist/` but there could also be added an additional image optimization task.
+			</td>
+			<td>
+				[`bin/copy-assets`](https://github.com/morkro/FrontBook/blob/master/bin/assets#L58)
+			</td>
+		</tr>
+		<tr>
+			<td>`markup/`</td>
+			<td>
+				All the views. If your project is a single page application you might just keep the `index.html` and work with additional includes and partials. If there are more views, such as `about.html`, they need to be added to the [build task](https://github.com/morkro/FrontBook/blob/master/bin/html).
+			</td>
+			<td>
+				[`bin/build-html`](https://github.com/morkro/FrontBook/blob/master/bin/html)
+			</td>
+		</tr>
+		<tr>
+			<td>`meta/`</td>
+			<td>
+				FrontBook keeps meta files like `humans.txt` or a `manifest.json` here. Some of them might have their own [build step](https://github.com/morkro/FrontBook/blob/master/bin/assets#L12), but all are eventually copied to `dist/`. If you want to have specific modifications for any meta file, add them to [`bin/copy-assets`](https://github.com/morkro/FrontBook/blob/master/bin/assets).
+			</td>
+			<td>
+				[`bin/copy-assets`](https://github.com/morkro/FrontBook/blob/master/bin/assets)
+			</td>
+		</tr>
+		<tr>
+			<td>`scripts/`</td>
+			<td>
+				Because the main reason for FrontBook is to be able to write ES201\* in production, this must be the more exciting part. <br>
+				FrontBook doesn't force you to stick to a specific MV\* architecture. It simply takes all `.js` files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to [specify](https://github.com/morkro/FrontBook/blob/master/bin/js#L20) them in the build step.
+			</td>
+			<td>
+				[`bin/build-js`](https://github.com/morkro/FrontBook/blob/master/bin/js)
+			</td>
+		</tr>
+		<tr>
+			<td>`styles/`</td>
+			<td>
+				FrontBook uses Sass for styling, but it can also easily replaced with any other postprocessor language. The architecture is up to you; if you don't know which architecture to use, take a look at [sass-guidelin.es](http://sass-guidelin.es).
+			</td>
+			<td>
+				[`bin/build-css`](https://github.com/morkro/FrontBook/blob/master/bin/css)
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+## 🔧 Available Tasks
 | Command | Description |
 | ------- | ----------- |
 | **`npm run build`** | Generates, compiles, and transpiles all files from `src/` to `dist/.` |
 | **`npm run dev`** | Same as `npm run build` but watches also all your files for changes. |
 | **`npm run lint`** | Uses `eslint` to lint all JavaScript files. |
+| **`npm run clean`** | Removes all content from `dist/` |
 | **`npm start`** | This is the production build. It minifies the CSS and JavaScript output. |
 
-## 📃 Further documentation
+## 📃 Further Documentation
 - [Browserify](http://browserify.org)
 - [Babel.js](http://babeljs.io)
 - [ESLint](http://eslint.org)
@@ -56,7 +153,7 @@ AST.
 - ES201* using [Browserify](http://browserify.org/) _(mainly to use modules in ES5)_ and [Babel](https://babeljs.io/).
 - ESLint
 
-## 📊 Browser support
+## 📊 Browser Support
 - Chrome (latest 2)
 - Firefox (latest 2)
 - Internet Explorer 9+ _(You can support IE8 by limiting yourself to a [subset of ES201* features](http://babeljs.io/docs/advanced/caveats/))_
