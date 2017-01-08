@@ -77,10 +77,10 @@ An overview of each folder:
 		<tr>
 			<td>`data/`</td>
 			<td>
-				Contains all required data <em>(e.g. copy, image meta data, ...)</em> for your views. It is passed to [nunjucks](https://github.com/morkro/FrontBook/blob/master/bin/html#L42) when it renders a view.
+				Contains all required data <em>(e.g. copy, image meta data, ...)</em> for your views. It is passed to <a href="https://github.com/morkro/FrontBook/blob/master/bin/html#L42">nunjucks</a> when it renders a view.
 			</td>
 			<td>
-				[`bin/build-html`](https://github.com/morkro/FrontBook/blob/master/bin/html)
+				<a href="https://github.com/morkro/FrontBook/blob/master/bin/html"><code>bin/build-html</code></a>
 			</td>
 		</tr>
 		<tr>
@@ -89,35 +89,35 @@ An overview of each folder:
 				Contains all images for your project. You could also argue to move them into `meta/`, or rename the folder to something like `assets/`. I prefer them separated to have a seperate, unique build task. Currently, images are just copied to `dist/` but there could also be added an additional image optimization task.
 			</td>
 			<td>
-				[`bin/copy-assets`](https://github.com/morkro/FrontBook/blob/master/bin/assets#L58)
+				<a href="https://github.com/morkro/FrontBook/blob/master/bin/assets#L58"><code>bin/assets</code></a>
 			</td>
 		</tr>
 		<tr>
 			<td>`markup/`</td>
 			<td>
-				All the views. If your project is a single page application you might just keep the `index.html` and work with additional includes and partials. If there are more views, such as `about.html`, they need to be added to the [build task](https://github.com/morkro/FrontBook/blob/master/bin/html).
+				All the views. If your project is a single page application you might just keep the `index.html` and work with additional includes and partials. If there are more views, such as `about.html`, they need to be added to the <a href="https://github.com/morkro/FrontBook/blob/master/bin/html">build task</a>.
 			</td>
 			<td>
-				[`bin/build-html`](https://github.com/morkro/FrontBook/blob/master/bin/html)
+				<a href="https://github.com/morkro/FrontBook/blob/master/bin/html"><code>bin/html</code></a>
 			</td>
 		</tr>
 		<tr>
 			<td>`meta/`</td>
 			<td>
-				FrontBook keeps meta files like `humans.txt` or a `manifest.json` here. Some of them might have their own [build step](https://github.com/morkro/FrontBook/blob/master/bin/assets#L12), but all are eventually copied to `dist/`. If you want to have specific modifications for any meta file, add them to [`bin/copy-assets`](https://github.com/morkro/FrontBook/blob/master/bin/assets).
+				FrontBook keeps meta files like `humans.txt` or a `manifest.json` here. Some of them might have their own <a href="https://github.com/morkro/FrontBook/blob/master/bin/assets#L12">build step</a>, but all are eventually copied to `dist/`. If you want to have specific modifications for any meta file, add them to <a href="https://github.com/morkro/FrontBook/blob/master/bin/assets"><code>bin/assets</code></a>.
 			</td>
 			<td>
-				[`bin/copy-assets`](https://github.com/morkro/FrontBook/blob/master/bin/assets)
+				<a href="https://github.com/morkro/FrontBook/blob/master/bin/assets"><code>bin/assets</code></a>
 			</td>
 		</tr>
 		<tr>
 			<td>`scripts/`</td>
 			<td>
 				Because the main reason for FrontBook is to be able to write ES201\* in production, this must be the more exciting part. <br>
-				FrontBook doesn't force you to stick to a specific MV\* architecture. It simply takes all `.js` files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to [specify](https://github.com/morkro/FrontBook/blob/master/bin/js#L20) them in the build step.
+				FrontBook doesn't force you to stick to a specific MV\* architecture. It simply takes all `.js` files and compiles them. Hence you can choose whatever design pattern you prefer. If you want to exclude specific files, you need to <a href="https://github.com/morkro/FrontBook/blob/master/bin/js#L20">specify</a> them in the build step.
 			</td>
 			<td>
-				[`bin/build-js`](https://github.com/morkro/FrontBook/blob/master/bin/js)
+				<a href="https://github.com/morkro/FrontBook/blob/master/bin/js"><code>bin/js</code></a>
 			</td>
 		</tr>
 		<tr>
@@ -126,7 +126,7 @@ An overview of each folder:
 				FrontBook uses Sass for styling, but it can also easily replaced with any other postprocessor language. The architecture is up to you; if you don't know which architecture to use, take a look at [sass-guidelin.es](http://sass-guidelin.es).
 			</td>
 			<td>
-				[`bin/build-css`](https://github.com/morkro/FrontBook/blob/master/bin/css)
+				<a href="https://github.com/morkro/FrontBook/blob/master/bin/css"><code>bin/css</code></a>
 			</td>
 		</tr>
 	</tbody>
