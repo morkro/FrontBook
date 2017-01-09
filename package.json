@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "morkro/frontbook#npm-scripts"
+    "url": "morkro/frontbook"
   },
   "author": {
     "name": "Moritz Kröger",
